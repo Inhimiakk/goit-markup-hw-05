@@ -15,6 +15,7 @@
      --tenth-color: #EEEEEE;
      --grad-color: rgba(47, 48, 58, 0.4);
      --client-color: #AFB1B8;
+     --cubic:cubic-bezier(0.4, 0, 0.2, 1)
  }
 
  /* general styles */
@@ -60,6 +61,10 @@
      padding: 0;
  }
 
+.link{
+    transition: color 250ms var(--cubic);
+}
+
  .link:focus,
  .link:hover {
      color: var(--fifth-color);
@@ -96,6 +101,7 @@
      font-family: inherit;
      cursor: pointer;
      border: none;
+     transition: color 250ms var(--cubic), background-color 250ms var(--cubic), filter 250ms var(--cubic);
  }
 
  body {
@@ -166,6 +172,7 @@
  }
 
  .icon-head {
+    transition: fill 250ms var(--cubic);
      fill: var(--seventh-color);
  }
 
@@ -224,9 +231,20 @@
      color: var(--fourth-color);
  }
 
- .studio,
- .portfolio {
+ .active {
      color: var(--fifth-color);
+     position: relative;
+ }
+
+ .active::after{
+    content: "";
+    background-color: var(--fifth-color);
+    border-radius: 2px;
+    width: 100%;
+    height: 4px;
+    display: block;
+    position: absolute;
+    bottom: -1px;
  }
 
  /* hero-section */
@@ -338,6 +356,7 @@
 
  svg.social-com {
      fill: var(--client-color);
+     transition: fill  250ms var(--cubic);
  }
 
  a.social-com {
@@ -348,6 +367,7 @@
      justify-content: center;
      align-items: center;
      background-color: var(--first-color);
+     transition: background-color  250ms var(--cubic);
  }
 
  .com-info {
@@ -380,6 +400,7 @@
 
  svg.social {
      fill: var(--first-color);
+     transition: fill  250ms var(--cubic);
  }
 
  a.social:hover,
@@ -455,6 +476,7 @@
      justify-content: center;
      align-items: center;
      background-color: rgba(255, 255, 255, 0.1);
+     transition: background-color  250ms var(--cubic);
  }
 
  /* PORTFOLIO */
@@ -465,6 +487,7 @@
      padding: 20px 24px;
      border: 1px solid #EEEEEE;
      border-top: none;
+     z-index: 1;
  }
 
  .cont-port {
@@ -494,14 +517,42 @@
 
  }
 
-
  .card-port {
      width: 370px;
  }
 
- .port-info-card:hover {
+ .card-port:hover .overflow-port {
+    transform: translateY(-100%);
+ }
+
+.wrap-port {
+    overflow: hidden;
+    position: relative;
+}
+
+.overflow-port{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--first-color);
+    background: rgba(33, 150, 243, 0.9);
+     transition: transform 250ms var(--cubic);
+     transform: translateY(0);
+     height: 100%;
+    font-size: 18px;
+line-height: 1.56;
+padding: 0 24px;
+
+letter-spacing: 0.03em;
+}
+  .port-info-card:hover {
      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
  }
+ 
+ .port-info-card{
+    transition: box-shadow 250ms var(--cubic);
+}
 
  .port-title {
      font-size: 18px;
@@ -530,6 +581,7 @@
      padding: 16px 32px;
      border: 1px solid var(--client-color);
      border-radius: 4px;
+     transition: border-color 250ms var(--cubic);
 
  }
 
@@ -545,6 +597,7 @@
 
  .company {
      fill: var(--client-color);
+     transition: fill  250ms var(--cubic);
  }
 
  a.social-com:hover svg.social-com,
@@ -557,4 +610,77 @@
      background-color: var(--fifth-color);
  }
 
- 
+ /* MODALKS SASALKA */
+ .data-modal{
+    backdrop-filter: brightness(0.8);
+    width: 100%;
+    height: 100%;
+    position:fixed;
+    top:0;
+    z-index: 1000000;
+    visibility:visible;
+    opacity: 100%;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+}
+   
+
+ .is-hidden {
+    opacity: 0;
+    pointer-events:none;
+    visibility:hidden;
+} 
+
+ .modal-window{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 528px;
+    height: 581px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+ }
+
+ .btn-modal{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top:0;
+    right: 0;
+    margin:8px;
+    padding: 6px;
+    border: solid 1px rgba(0, 0, 0, 0.10);
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--first-color);
+ }
+
+ /* textposedebilizm */
+
+ .img-pose{
+    position: relative;
+ }
+ .text-pose{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom:0;
+    background-color: rgba(47, 48, 58, 0.8);
+    width: 100%;
+    height: 70px;
+ }
+
+ .text-nepose{
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.143;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--first-color);
+ }

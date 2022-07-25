@@ -28,7 +28,7 @@
                     <ul class="list header-list">
                         <li>
                             <a
-                                class="link link-header link-nav studio"
+                                class="link link-header link-nav active"
                                 href="./index.html"
                                 >Студия</a
                             >
@@ -73,14 +73,27 @@
             </div>
         </header>
         <main>
+
+            <div data-modal class="data-modal is-hidden">
+                <div class="modal-window">
+                    <button class="btn-modal" data-modal-close type="button">
+                        <svg width="18px" height="18px">
+                            <use href="./images/icons.svg#close"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+
             <section class="hero-bg hero">
                 <div class="container container-vertical">
                     <h1 class="hero-title">
                         Эффективные решения <br />для вашего бизнеса
                     </h1>
-                    <button class="btn-hero" type="button">
+                    <button class="btn-hero" type="button" data-modal-open>
                         Заказать услугу
                     </button>
+
                 </div>
             </section>
             <section class="peculiarities-cont">
@@ -133,26 +146,33 @@
                 <div class="container container-vertical">
                     <h2 class="second-title">Чем мы занимаемся</h2>
                     <ul class="list list-img">
-                        <li>
+                        <li class="img-pose">
                             <img
                                 src="./images/img2.jpg"
                                 alt="Человек, работающий за айпадом"
                                 width="370"
                             />
+                            <div class="text-pose">
+                                <p class="text-nepose">Десктопні додатки</p>
+                            </div>
                         </li>
-                        <li>
+                        <li class="img-pose">
                             <img
                                 src="./images/img3.jpg"
                                 alt="Человек, смотрящий в телефон"
                                 width="370"
-                            />
+                            /><div class="text-pose">
+                                <p class="text-nepose">Мобільні додатки</p>
+                            </div>
                         </li>
-                        <li>
+                        <li class="img-pose">
                             <img
                                 src="./images/img1.jpg"
                                 alt="Цветной спектр на айпаде"
                                 width="370"
-                            />
+                            /><div class="text-pose">
+                                <p class="text-nepose">Дизайнерські рішення</p>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -516,5 +536,6 @@
                 </div>
 				</div>
         </footer>
+        <script src="./js/modal.js"></script>
     </body>
 </html>
