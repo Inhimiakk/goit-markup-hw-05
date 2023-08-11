@@ -683,6 +683,7 @@ nav{
     letter-spacing: 0.02em;
     margin-bottom: 16px;
 }
+
 .label{
     display: block;
     color: var(--light-slate);
@@ -691,6 +692,10 @@ nav{
     line-height: 1.17;
     letter-spacing: 0.04em;
     margin-bottom: 4px;
+}
+
+.label::placeholder{
+    color: var(--navyblue-modal);
 }
 
 .form-inputs {
@@ -771,7 +776,7 @@ nav{
     color: var(--light-slate);
     font-size: 12px;
     line-height: 1.17;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
 }
 
 .custom-input-checkbox {
@@ -788,7 +793,7 @@ nav{
 }
 
 input:checked +.privacy .custom-input-checkbox {
-    background-color: var(--iris);
+    background-color: var(--ocean);
     border: none;
     fill: var(--cloud);
 }
