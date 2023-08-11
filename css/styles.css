@@ -247,14 +247,14 @@ nav{
 
 /*Advantages*/
 
-.advantages{
+.advantages,
+.customers,
+.team{
     padding: 120px 0;
 }
 
-.customers,
-.doing,
-.team{
-    padding: 120px 0;
+.doing{
+    padding-bottom: 120px;
 }
 
 .advantages-svg{
@@ -527,7 +527,6 @@ nav{
     align-items: flex-start;
     border-radius: 4px;
     border: 1px solid var(--cornflower);
-    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.10);
     background: var(--cloud);
     color: var(--iris);
     transition: color 250ms var(--cubic), background-color 250ms var(--cubic), border-color 250ms var(--cubic), box-shadow 250ms var(--cubic);
@@ -536,6 +535,7 @@ nav{
 .button-portfolio:hover,
 .button-portfolio:focus{
     border: 1px solid transparent;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.10);
 }
 
 
@@ -775,6 +775,7 @@ nav{
 }
 
 .custom-input-checkbox {
+    margin-right: 8px;
     width: 16px;
     height: 16px;
     border: 1px solid var(--navyblue-modal);
